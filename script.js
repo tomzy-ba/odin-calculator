@@ -5,29 +5,37 @@ const divideButton = document.querySelector("#divide_button");
 const equalsButton = document.querySelector("#equals_button");
 
 const calcInput = document.querySelector("#calculator_input");
+const calcClear = document.querySelector("#calculator_clear_button")
 
-function calcOperate() {
+calcClear.addEventListener("click", () => {
+    calcInput.value = null;
+})
 
 addButton.addEventListener("click", () => {
-    let userAddValue = calcInput.value;
-    calcInput.value = null;
 })
+
 subtractButton.addEventListener("click", () => {
-    let userSubtracting = calcInput.value;
-    calcInput.value = null;
 })
+
 multiplyButton.addEventListener("click", () => {
-    let userMuliplying = calcInput.value;
-    calcInput.value = null;
 })
+
 divideButton.addEventListener("click", () => {
-    let userDividing = calcInput.value;
-    calcInput.value = null;
 })
 
-equalsButton.addEventListener("click", () => {
-    calcInput.value = userAddValue + calcInput.value;
-})
 
+function calcOperate(inputOperator, calcvalue1, calcvalue2) {
+    if(inputOperator === "add") {
+        return (calcvalue1 + calcvalue2);
+    }
+    else if (inputOperator === "subtract") {
+        return(calcvalue1 - calcvalue2);
+    }
+    else if (inputOperator === "multiply") {
+        return(calcvalue1 * calcvalue2);
+    }
+    else if (inputOperator === "divide") {
+        return(calcvalue1 / calcvalue2)
+    }
 }
-calcOperate()
+console.log(calcOperate("add", 4, 6))
