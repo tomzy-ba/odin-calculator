@@ -17,15 +17,18 @@ body {
     justify-content: space-around;
     background-color:gray;
     border: 5px solid black;
-    align-items: center;
 }
-#calculator input {
-    height: 200px;
-    width: 400px;
-    font-size:150px;
+#calculator_input_div {
+    display: flex;
     text-align: center;
     border-radius: 5px;
 }
+
+#calculator input {
+    font-size:40px;
+    height: 100px;
+}
+
 
 #calculator_buttons_div {
     display: flex;
