@@ -12,6 +12,8 @@ calcClear.addEventListener("click", () => {
 })
 
 addButton.addEventListener("click", () => {
+    addValue = calcInput.value;
+    calcInput.value = null;
 })
 
 subtractButton.addEventListener("click", () => {
@@ -23,6 +25,9 @@ multiplyButton.addEventListener("click", () => {
 divideButton.addEventListener("click", () => {
 })
 
+equalsButton.addEventListener("click", () => {
+    console.log(parseInt(addValue) + parseInt(calcInput.value))
+})
 
 function calcOperate(inputOperator, calcvalue1, calcvalue2) {
     if(inputOperator === "add") {
@@ -38,4 +43,3 @@ function calcOperate(inputOperator, calcvalue1, calcvalue2) {
         return(calcvalue1 / calcvalue2)
     }
 }
-console.log(calcOperate("add", 4, 6))
