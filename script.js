@@ -22,52 +22,45 @@ function numButtonClick() {
     calcInput.value += this.innerHTML;
 }
 
+let currentOperator = ""
 
 calcClear.addEventListener("click", () => {
     calcInput.value = null;
     currentValue = null;
-    currentOperator = null;
+    currentOperator = "";
 })
 
-addButton.addEventListener("click", () => {
-    currentValue = calcInput.value;
-    calcInput.value = null;
-    currentOperator = "add";
-})
+addButton.addEventListener("click", () => operatorButtons("add"));
 
-subtractButton.addEventListener("click", () => {
-    currentValue = calcInput.value;
-    calcInput.value = null;
-    currentOperator = "subtract";
-})
+subtractButton.addEventListener("click", () => operatorButtons("subtract"));
 
-multiplyButton.addEventListener("click", () => {
-    currentValue = calcInput.value;
-    calcInput.value = null;
-    currentOperator = "multiply";
-})
+multiplyButton.addEventListener("click",() => operatorButtons("multiply"));
 
-divideButton.addEventListener("click", () => {
+divideButton.addEventListener("click", () => operatorButtons("divide"));
+
+
+function operatorButtons(operatorPressed) {
     currentValue = calcInput.value;
     calcInput.value = null;
-    currentOperator = "divide";
-})
+    currentOperator += operatorPressed
+}
 
 equalsButton.addEventListener("click", () => {
-    calcOperate(currentOperator, parseInt(currentValue), parseInt(calcInput.value))
+    calcOperate(currentOperator, parseInt(calcInput.value), parseInt(currentValue))
 })
 
 function calcOperate(inputOperator, calcvalue1, calcvalue2) {
-    if(inputOperator === "add") {
+    if(inputOperator == "add") {
         calcInput.value = (calcvalue1 + calcvalue2);
     }
-    else if (inputOperator === "subtract") {
-        calcInput.value = (calcvalue1 - calcvalue2);
+    else if (inputOperator == "subtract") {
+        (calcvalue1 - calcvalue2);
     }
-    else if (inputOperator === "multiply") {
-        calcInput.value = (calcvalue1 * calcvalue2)
+    else if (inputOperator == "multiply") {
+        (calcvalue1 * calcvalue2)
     }
-    else if (inputOperator === "divide") {
-        calcInput.value = (calcvalue1 / calcvalue2)
+    else if (inputOperator == "divide") {
+        (calcvalue1 / calcvalue2)
     }
 }
+
