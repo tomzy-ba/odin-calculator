@@ -7,12 +7,19 @@ const equalsButton = document.querySelector("#equals_button");
 const calcInput = document.querySelector("#calculator_input");
 const calcClear = document.querySelector("#calculator_clear_button")
 
-const calcOneButton = document.querySelector("#one_button");
-
-calcOneButton.addEventListener("click", numButtonClick)
+document.querySelector("#one_button").addEventListener("click", numButtonClick)
+document.querySelector("#two_button").addEventListener("click", numButtonClick)
+document.querySelector("#three_button").addEventListener("click", numButtonClick)
+document.querySelector("#four_button").addEventListener("click", numButtonClick)
+document.querySelector("#five_button").addEventListener("click", numButtonClick)
+document.querySelector("#six_button").addEventListener("click", numButtonClick)
+document.querySelector("#seven_button").addEventListener("click", numButtonClick)
+document.querySelector("#eight_button").addEventListener("click", numButtonClick)
+document.querySelector("#nine_button").addEventListener("click", numButtonClick)
+document.querySelector("#zero_button").addEventListener("click", numButtonClick)
 
 function numButtonClick() {
-    this.value += calcInput;
+    calcInput.value += this.innerHTML;
 }
 
 
