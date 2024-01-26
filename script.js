@@ -9,6 +9,8 @@ const calcClear = document.querySelector("#calculator_clear_button")
 
 calcClear.addEventListener("click", () => {
     calcInput.value = null;
+    currentValue = null;
+    currentOperator = null;
 })
 
 addButton.addEventListener("click", () => {
