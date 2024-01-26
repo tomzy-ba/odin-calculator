@@ -7,6 +7,15 @@ const equalsButton = document.querySelector("#equals_button");
 const calcInput = document.querySelector("#calculator_input");
 const calcClear = document.querySelector("#calculator_clear_button")
 
+const calcOneButton = document.querySelector("#one_button");
+
+calcOneButton.addEventListener("click", numButtonClick)
+
+function numButtonClick() {
+    this.value += calcInput;
+}
+
+
 calcClear.addEventListener("click", () => {
     calcInput.value = null;
     currentValue = null;
