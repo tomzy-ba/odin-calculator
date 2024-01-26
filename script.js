@@ -12,35 +12,44 @@ calcClear.addEventListener("click", () => {
 })
 
 addButton.addEventListener("click", () => {
-    addValue = calcInput.value;
+    currentValue = calcInput.value;
     calcInput.value = null;
     currentOperator = "add";
 })
 
 subtractButton.addEventListener("click", () => {
+    currentValue = calcInput.value;
+    calcInput.value = null;
+    currentOperator = "subtract";
 })
 
 multiplyButton.addEventListener("click", () => {
+    currentValue = calcInput.value;
+    calcInput.value = null;
+    currentOperator = "multiply";
 })
 
 divideButton.addEventListener("click", () => {
+    currentValue = calcInput.value;
+    calcInput.value = null;
+    currentOperator = "divide";
 })
 
 equalsButton.addEventListener("click", () => {
-    calcOperate(currentOperator, parseInt(addValue), parseInt(calcInput.value))
+    calcOperate(currentOperator, parseInt(currentValue), parseInt(calcInput.value))
 })
 
 function calcOperate(inputOperator, calcvalue1, calcvalue2) {
     if(inputOperator === "add") {
-        return (calcvalue1 + calcvalue2);
+        calcInput.value = (calcvalue1 + calcvalue2);
     }
     else if (inputOperator === "subtract") {
-        return(calcvalue1 - calcvalue2);
+        calcInput.value = (calcvalue1 - calcvalue2);
     }
     else if (inputOperator === "multiply") {
-        return(calcvalue1 * calcvalue2);
+        calcInput.value = (calcvalue1 * calcvalue2)
     }
     else if (inputOperator === "divide") {
-        return(calcvalue1 / calcvalue2)
+        calcInput.value = (calcvalue1 / calcvalue2)
     }
 }
