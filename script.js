@@ -18,11 +18,15 @@ document.querySelector("#eight_button").addEventListener("click", numButtonClick
 document.querySelector("#nine_button").addEventListener("click", numButtonClick)
 document.querySelector("#zero_button").addEventListener("click", numButtonClick)
 
+const currentValueDiv = document.querySelector("#current_value_div");
+
+
 function numButtonClick() {
     calcInput.value += this.innerHTML;
 }
 
 let currentOperator = ""
+let currentValue = null;
 
 calcClear.addEventListener("click", () => {
     calcInput.value = null;
@@ -34,15 +38,19 @@ addButton.addEventListener("click", () => operatorButtons("add"));
 
 subtractButton.addEventListener("click", () => operatorButtons("subtract"));
 
-multiplyButton.addEventListener("click",() => operatorButtons("multiply"));
+multiplyButton.addEventListener("click", () => operatorButtons("multiply"));
 
 divideButton.addEventListener("click", () => operatorButtons("divide"));
 
 
 function operatorButtons(operatorPressed) {
+    if(currentOperator != null && currentValue != null) {
+        calcOperate(currentOperator, parseInt(calcInput.value), parseInt(currentValue))
+        currentOperator = "";
+    }
     currentValue = calcInput.value;
     calcInput.value = null;
-    currentOperator += operatorPressed
+    currentOperator += operatorPressed;
 }
 
 equalsButton.addEventListener("click", () => {
@@ -54,13 +62,13 @@ function calcOperate(inputOperator, calcvalue1, calcvalue2) {
         calcInput.value = (calcvalue1 + calcvalue2);
     }
     else if (inputOperator == "subtract") {
-        (calcvalue1 - calcvalue2);
+        calcInput.value = (calcvalue1 - calcvalue2);
     }
     else if (inputOperator == "multiply") {
-        (calcvalue1 * calcvalue2)
+        calcInput.value = (calcvalue1 * calcvalue2)
     }
     else if (inputOperator == "divide") {
-        (calcvalue1 / calcvalue2)
+        calcInput.value = (calcvalue1 / calcvalue2)
     }
+    currentValueDiv.innerHTML = currentValue;
 }
-
